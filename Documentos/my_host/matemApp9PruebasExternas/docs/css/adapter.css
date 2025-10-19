@@ -1,0 +1,131 @@
+/* Dispositivos móviles screen pequeña */
+@media(max-width:600px) {
+    .contenedor {
+        height: 100vh;
+        grid-template-areas: 
+            "header "
+            "titulo"
+            "sidebar"
+            "main"
+            "footer";
+        grid-template-columns: 100%;
+        grid-template-rows: 50px 90px 200px 200px 30px;
+        gap: 10px;
+    }
+
+    header, .escudo, .encabezado, nav, main, footer {
+        min-height: auto; /* Resetea la altura mínima para dispositivos pequeños */
+    }
+
+    .escudo {
+        visibility: hidden;
+    }
+
+    .encabezado {
+        font-size: 0.7em;
+    }
+
+    .tituloh1 {
+        font-size: 1em;
+    }
+
+    .cfooter {
+        font-size: 0.6em;
+    }
+
+    .button-link {
+        margin-bottom: 3px;
+        font-size: 14px;
+    }
+    
+}
+
+/* Dispositivos tablets */
+@media (min-width: 601px) and (max-width: 768px) { 
+    .contenedor {
+        min-height: 100vh;
+        grid-template-areas: 
+            "header header"
+            "titulo titulo"
+            "sidebar main"
+            "footer footer";
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 60px 160px auto min-content;
+        gap: 10px;
+    }
+
+    header, .escudo, .encabezado, nav, main, footer {
+        min-height: auto; /* Resetea la altura mínima para dispositivos medianos */
+    }
+
+
+    .escudo {
+        visibility: hidden;
+    }
+
+    .encabezado {
+        font-size: 1.2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 16px;
+        font-size: 1.7em;
+        font-weight: bold;
+        color: #4682B4;
+        justify-content: space-between;
+        background: linear-gradient(30deg, rgb(248, 248, 255), rgb(173, 216, 230), #FFFFF0);
+        border: 2px solid #32b091;
+        border-radius: 5px;
+    }
+
+    .tituloh1 {
+        font-size: 1.4em;
+    }
+    
+    .cfooter {
+        font-size: 0.6em;
+    }
+}
+
+/* Dispositivos portátiles pequeños  */
+@media (min-width: 769px) and (max-width:1365px) {
+
+    .contenedor {
+        min-height: 100vh;
+        grid-template-areas: 
+        "header header header"
+        "img titulo titulo"
+        "sidebar main main"
+        "footer footer footer";
+        grid-template-columns: 300px 1fr 1fr;
+        grid-template-rows: 80px 100px 1fr min-content;;
+        gap: 5px;
+    }
+
+    header, .escudo, .encabezado, nav, main, footer {
+        min-height: auto; /* Resetea la altura mínima para dispositivos grandes */
+    }
+
+    .encabezado {
+        font-size: 0.8em;
+        overflow: hidden;
+    }
+
+    .cfooter {
+        font-size: 0.7em;
+    }
+    .escudo img {
+        width: 50%;
+        height: 70px;
+    
+    }
+
+    .tituloh6 {
+    margin: 10px 0;
+    color:#4682B4;
+    font-size: 1em;
+    font-weight: normal;
+    text-align: center;
+}
+    
+}

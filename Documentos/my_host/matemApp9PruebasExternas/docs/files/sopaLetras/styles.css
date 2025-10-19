@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#wordsearch {
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    grid-gap: 2px;
+    margin-top: 20px;
+}
+
+#wordsearch div {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+#wordsearch div.selected {
+    background-color: #2196f3;
+    color: white;
+}
+
+#wordsearch div.found {
+    background-color: #8bc34a;
+    color: white;
+}
+
+#word-list {
+    margin-top: 20px;
+}
+
+#word-list div {
+    margin-bottom: 5px;
+}
+
+#word-list div.found {
+    text-decoration: line-through;
+}

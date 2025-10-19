@@ -1,0 +1,50 @@
+.contenedor {
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "img titulo titulo"
+    "sidebar main main"
+    "footer footer footer";
+    grid-template-columns: 300px 1fr 1fr;
+    grid-template-rows: 100px 150px 1fr 50px;
+    gap: 10px;
+    min-height: 100vh;
+}
+
+header {
+    grid-area: header;
+    padding: 16px;
+    gap: 12px;
+    min-height: 100px; /* Altura mínima */
+}
+
+.escudo {
+    grid-area: img;
+    min-height: 150px; /* Altura mínima */
+}
+
+.encabezado {
+    grid-area: titulo;
+    min-height: 150px; /* Altura mínima */
+}
+
+nav {
+    grid-area: sidebar;
+    min-height: 500px; /* Altura mínima */
+}
+
+main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    min-height: 500px; /* Altura mínima */   
+}
+
+
+
+footer {
+    grid-area: footer;
+    min-height: 50px; /* Altura mínima */
+}
