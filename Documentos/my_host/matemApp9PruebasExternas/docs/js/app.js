@@ -78,3 +78,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mostrar el primer ejercicio al cargar la página
     mostrarEjercicio(1);
 });
+
+

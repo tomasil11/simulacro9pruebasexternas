@@ -239,6 +239,12 @@ footer {
     border-radius: 5px;
 }
 
+.botonAccede {
+    margin: auto 30px;
+    padding: 10px;
+}
+
+
 /* Estilo del Contenedor de Navegación */
 #controles-navegacion {
     margin-top: 20px;
