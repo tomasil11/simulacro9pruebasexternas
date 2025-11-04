@@ -1,77 +1,80 @@
-// Objeto con la información de las cards
+// Código JavaScript para la navegación entre ejercicios
 
-let nombreActividad01;
+document.addEventListener('DOMContentLoaded', function() {
+    const ejercicios = document.querySelectorAll('.ejercicio');
+    const controlesNavegacion = document.getElementById('controles-navegacion');
+    const btnSiguiente = document.getElementById('btn-siguiente');
+    const totalEjercicios = ejercicios.length;
+    let ejercicioActual = 1;
 
-let cards = [
-    {
-        titulo: "Actividad #1",
-        tipo: "Vídeo",
-        img: "images/iconos/botonVideo01.png",
-        ancho: 50,
-        alto: 50,
-        nombre: "Tipologías Textuales"
-    }, 
-    {
-        titulo: "Actividad #2",
-        tipo: "Crucigrama",
-        img: "images/iconos/actividadesPedagogicas.png",
-        ancho: 50,
-        alto: 50,
-        nombre: "Tipología Textual"
-    },
-    {
-        titulo: "Actividad #3",
-        tipo: "Infografía",
-        img: "images/iconos/images.png",
-        ancho: 50,
-        alto: 50,
-        nombre: "Tipologías Textuales" 
+    // -----------------------------------------------------
+    // FUNCIÓN PRINCIPAL DE VISUALIZACIÓN
+    // -----------------------------------------------------
+    function mostrarEjercicio(indice) {
+        // 1. Ocultar todos los ejercicios
+        ejercicios.forEach(ej => {
+            ej.style.display = 'none';
+        });
+
+        // 2. Mostrar el ejercicio solicitado
+        const ejercicioId = `ejercicio-${indice}`;
+        const ejercicioAMostrar = document.getElementById(ejercicioId);
+        if (ejercicioAMostrar) {
+            ejercicioAMostrar.style.display = 'block';
+            ejercicioActual = indice;
+        }
+
+        // 3. Actualizar el estado de los botones (activo/inactivo)
+        document.querySelectorAll('.btn-ejercicio').forEach(btn => {
+            btn.classList.remove('activo');
+            if (parseInt(btn.dataset.indice) === ejercicioActual) {
+                btn.classList.add('activo');
+            }
+        });
+
+        // 4. Actualizar el texto del botón Siguiente
+        if (ejercicioActual === totalEjercicios) {
+            btnSiguiente.textContent = 'Finalizar Prueba';
+        } else {
+            btnSiguiente.textContent = `Siguiente → (${ejercicioActual}/${totalEjercicios})`;
+        }
     }
 
-]
-// Fin de objeto
+    // -----------------------------------------------------
+    // CREACIÓN DEL MENÚ DE BOTONES DE PAGINACIÓN
+    // -----------------------------------------------------
+    const menuPaginacion = document.createElement('div');
+    menuPaginacion.id = 'menu-ejercicios';
+    
+    for (let i = 1; i <= totalEjercicios; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = `Eje. ${i}`;
+        btn.classList.add('btn-ejercicio');
+        btn.dataset.indice = i; // Guardamos el índice para usarlo en el click
+        
+        btn.addEventListener('click', function() {
+            mostrarEjercicio(i);
+        });
 
-// Código ingreso de la card 1
-document.getElementById("titulo-card1").innerHTML = cards[0].titulo;
-document.getElementById("tipo-card1").innerHTML = cards[0].tipo;
-let contenedorImages = document.getElementById("images-card1");
-document.getElementById("actividad-card1").innerHTML = cards[0].nombre;
+        menuPaginacion.appendChild(btn);
+    }
+    
+    // Insertar el menú antes del botón Siguiente
+    controlesNavegacion.insertBefore(menuPaginacion, btnSiguiente);
 
+    // -----------------------------------------------------
+    // LÓGICA DEL BOTÓN SIGUIENTE
+    // -----------------------------------------------------
+    btnSiguiente.addEventListener('click', function() {
+        if (ejercicioActual < totalEjercicios) {
+            mostrarEjercicio(ejercicioActual + 1);
+        } else {
+            // Lógica para finalizar la prueba (ej. enviar formulario, mostrar resultados)
+            alert("¡Prueba finalizada! Puedes enviar los resultados ahora.");
+            // Aquí iría el código para enviar los datos o redirigir
+        }
+    });
 
-let imgElement = document.createElement("img");
-imgElement.src = cards[0].img;
-imgElement.width = cards[0].ancho;
-imgElement.height = cards[0].alto;
-contenedorImages.appendChild(imgElement);
-
-// Fin código ingreso card1
-
-// Código ingreso de la card 2
-document.getElementById("titulo-card2").innerHTML = cards[1].titulo;
-document.getElementById("tipo-card2").innerHTML = cards[1].tipo;
-let contenedorImages02 = document.getElementById("images-card2");
-document.getElementById("actividad-card2").innerHTML = cards[1].nombre;
-
-
-let imgElement02 = document.createElement("img");
-imgElement02.src = cards[1].img;
-imgElement02.width = cards[1].ancho;
-imgElement02.height = cards[1].alto;
-contenedorImages02.appendChild(imgElement02);
-
-// Fin código ingreso card2
-
-// Código ingreso de la card 3
-document.getElementById("titulo-card3").innerHTML = cards[2].titulo;
-document.getElementById("tipo-card3").innerHTML = cards[2].tipo;
-let contenedorImages03 = document.getElementById("images-card3");
-document.getElementById("actividad-card3").innerHTML = cards[2].nombre;
-
-
-let imgElement03 = document.createElement("img");
-imgElement03.src = cards[2].img;
-imgElement03.width = cards[2].ancho;
-imgElement03.height = cards[2].alto;
-contenedorImages03.appendChild(imgElement03);
-
-// Fin código ingreso card3
+    // Mostrar el primer ejercicio al cargar la página
+    mostrarEjercicio(1);
+});

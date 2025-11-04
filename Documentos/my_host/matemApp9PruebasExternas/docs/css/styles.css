@@ -81,11 +81,14 @@ header {
 
 
 nav {
+    /* Fondo y espaciado */
     background: linear-gradient(30deg, rgb(248, 248, 255), rgb(173, 216, 230), #FFFFF0);
-    padding: 16px;
+    padding: 8px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    /* Evitar distribución automática del espacio */
+    justify-content: flex-start; /* antes: space-around */
+    gap: 12px; /* controla la separación vertical entre botones */
 }
 
 main {
@@ -227,5 +230,69 @@ footer {
 
 .imagenEfecto {
     border-radius: 5px;
+}
+
+.boton-pequeno {
+    width: 90px;
+    height: 40px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+/* Estilo del Contenedor de Navegación */
+#controles-navegacion {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-top: 1px solid #ccc;
+    display: flex; /* Permite alinear el menú de opciones y el botón siguiente */
+    justify-content: space-between; /* Distribuye espacio entre el menú y el botón Siguiente */
+    align-items: center;
+}
+
+/* Estilo para los botones de ejercicio (el menú paginador) */
+.btn-ejercicio {
+    padding: 8px 12px;
+    margin-right: 5px;
+    border: 1px solid #007bff;
+    background-color: #fff;
+    color: #007bff;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn-ejercicio:hover {
+    background-color: #e6f0ff;
+}
+
+/* Estilo del botón activo (el ejercicio que se está viendo) */
+.btn-ejercicio.activo {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+/* Estilo del botón Siguiente */
+#btn-siguiente {
+    padding: 10px 20px;
+    background-color: #28a745; /* Verde */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#btn-siguiente:hover {
+    background-color: #218838;
+}
+
+.ejercicio {
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    background-color: white;
 }
 
