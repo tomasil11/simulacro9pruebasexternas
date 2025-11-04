@@ -134,7 +134,7 @@ article {
     background-color: rgb(211 211 211 / 70%);
     color:#333533;
     font-size: 1.2em;
-    margin: auto 30px;
+    margin: 10px 30px;
     padding: 10px;
     border: 3px solid #227877;
     box-sizing: border-box;
@@ -240,8 +240,12 @@ footer {
 }
 
 .botonAccede {
-    margin: auto 30px;
+    margin: 10px 30px;
     padding: 10px;
+}
+
+.botonColor {
+    background: #218838;
 }
 
 
