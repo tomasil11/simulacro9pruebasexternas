@@ -239,15 +239,46 @@ footer {
     border-radius: 5px;
 }
 
+.botonMediano {
+    display: block;
+    width: 150px;
+    height: 45px;
+    font-size: 16px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #3498db, #2c3e50);
+    color:#fff;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: .3s ease all;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
 .botonAccede {
     margin: 10px 30px;
     padding: 10px;
+}
+
+.botonJustify {
+    margin: 10px 30px;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido (el botón) a la derecha */
+
 }
 
 .botonColor {
     background: #218838;
 }
 
+.tamImagenPreg {
+    width: 50%;
+    height: 250px;
+    margin: 10px 0;
+}
 
 /* Estilo del Contenedor de Navegación */
 #controles-navegacion {
@@ -305,4 +336,3 @@ footer {
     margin-bottom: 20px;
     background-color: white;
 }
-

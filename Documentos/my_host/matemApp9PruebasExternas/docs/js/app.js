@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     for (let i = 1; i <= totalEjercicios; i++) {
         const btn = document.createElement('button');
-        btn.textContent = `Eje. ${i}`;
+        btn.textContent = `Ej${i}`;
         btn.classList.add('btn-ejercicio');
         btn.dataset.indice = i; // Guardamos el índice para usarlo en el click
         
