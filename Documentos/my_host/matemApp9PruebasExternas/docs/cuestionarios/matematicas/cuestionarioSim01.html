@@ -51,13 +51,18 @@
                 ¿Cuál fue la máxima rapidez del helicóptero durante los primeros 120 segundos del recorrido?
             </p>
             <p>
+                <input type="radio" id="p1RtaA" name="preg1RtaA" value="a" disabled>
                 a. 300 km/h.<br>
+                <input type="radio" id="p1RtaB" name="preg1RtaA" value="b" disabled>
                 b. 250 km/h.<br>
+                <input type="radio" id="p1RtaC" name="preg1RtaA" value="c" disabled>
                 c. 200 km/h.<br>
+                <input type="radio" id="p1RtaD" name="preg1RtaA" value="d" disabled>
                 d. 150 km/h.
             </p>
             <div class="botonJustify">
-            <a href="cuestionarioSim01.html" id="botonJusti" class="botonMediano"><span>Justificación</span></a>
+                <button id="btnEnviarRta1" class="botonMediano formatBotonEnviarRta" style="display: none;">Enviar Respuesta</button>
+                <a href="#" id="botonJusti" class="botonMediano formatoBotonJustify"><span>Justificación</span></a>
             </div>
         </div>
         
@@ -90,6 +95,23 @@
         <footer class="cfooter">Soluciones Tecnológicas - ITAH</footer>
     </div>
 
+    <!-- ========= INICIO DE LA VENTANA MODAL PARA JUSTIFICACIÓN ========= -->
+    <div id="modalJustificacion" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" id="cerrarModal">&times;</span>
+            <h2>Justificación de la Respuesta</h2>
+            <div class="parrafoCards">
+                <p>
+                    La respuesta correcta es <strong>d. 150 km/h</strong>.
+                </p>
+                <p>
+                    Para encontrar la máxima rapidez alcanzada por el helicóptero, debemos observar el punto más alto en la gráfica. El eje vertical (eje Y) representa la rapidez en km/h. El valor máximo que alcanza la línea de la gráfica es 150. Por lo tanto, esa fue la máxima rapidez del helicóptero en el recorrido.
+                </p>
+            </div>
+            <button id="btnRegresar" class="botonMediano">Responder</button>
+        </div>
+    </div>
+    <!-- ========= FIN DE LA VENTANA MODAL ========= -->
 
     <script src="../../js/app.js"></script>
 </body>

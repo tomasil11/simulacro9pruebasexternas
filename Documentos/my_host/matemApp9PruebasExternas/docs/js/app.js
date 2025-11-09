@@ -80,3 +80,48 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// =================================================================
+// LÓGICA PARA LA VENTANA MODAL DE JUSTIFICACIÓN
+// =================================================================
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleccionar los elementos del DOM
+    const modal = document.getElementById('modalJustificacion');
+    const botonAbrirModal = document.getElementById('botonJusti');
+    const botonCerrarModal = document.getElementById('cerrarModal');
+    const botonRegresar = document.getElementById('btnRegresar');
+
+    // Función para abrir el modal
+    if (botonAbrirModal) {
+        botonAbrirModal.addEventListener('click', function(evento) {
+            evento.preventDefault(); // Evita que el enlace recargue la página
+            modal.style.display = 'block';
+        });
+    }
+
+    // Función para cerrar el modal con cualquiera de los dos botones
+    function cerrarElModal() {
+        modal.style.display = 'none';
+        // Habilitar las opciones de radio de la pregunta actual
+        const radioButtons = document.querySelectorAll('input[name="preg1RtaA"]'); // Asumiendo que es para la pregunta 1
+        radioButtons.forEach(radio => {
+            radio.disabled = false;
+            // Añadir un listener para mostrar el botón de enviar cuando se selecciona una respuesta
+            radio.addEventListener('change', function() {
+                const botonEnviar = document.getElementById('btnEnviarRta1');
+                if (botonEnviar) {
+                    botonEnviar.style.display = 'inline-block';
+                    // Añadir la clase para alinear los botones a los extremos
+                    botonEnviar.parentElement.classList.add('botones-extremos');
+                }
+            });
+        });
+        
+    }
+
+    function cerrarElModalX() {
+        modal.style.display = 'none';
+    }
+
+    botonCerrarModal.addEventListener('click', cerrarElModalX);
+    botonRegresar.addEventListener('click', cerrarElModal);
+});
